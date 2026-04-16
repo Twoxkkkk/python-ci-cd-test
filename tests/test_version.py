@@ -5,4 +5,4 @@ def get_version():
     return VERSION
 
 def test_get_version():
-    assert get_version() == 260401 # потенциальная подгрузка с сервера
+    assert get_version() == 260402 # потенциальная подгрузка с сервера
