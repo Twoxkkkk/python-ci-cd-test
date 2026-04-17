@@ -1,0 +1,28 @@
+name: Deploying-Pipeline
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: docker build -t python-ci-cd-test-image .
+  tests:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Testing
+        run: docker run -rm python-ci-cd-test-image uv run pytest
+  deploy:
+    runs-on: self-hosted
+    needs: tests
+    steps:
+      - name: Deploy
+        run: docker run --rm -p 8000:8000 python-ci-cd-test-image
+      
