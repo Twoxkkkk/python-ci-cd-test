@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return "Just rename for test"
+    return "Testing change"
 
 
 if __name__ == "__main__":
