@@ -18,7 +18,7 @@ jobs:
     needs: build
     steps:
       - name: Testing
-        run: docker run -rm python-ci-cd-test-image uv run pytest
+        run: docker run --rm python-ci-cd-test-image uv run pytest
   deploy:
     runs-on: self-hosted
     needs: tests
