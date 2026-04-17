@@ -1,0 +1,8 @@
+services:
+  app:
+    image: python-ci-cd-test-image:latest
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+    command: uv run main.py
